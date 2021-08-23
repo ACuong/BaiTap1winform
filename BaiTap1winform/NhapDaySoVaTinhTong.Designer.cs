@@ -42,7 +42,7 @@ namespace BaiTap1winform
             this.txtDayNhap = new System.Windows.Forms.TextBox();
             this.txtTongPhanTu = new System.Windows.Forms.TextBox();
             this.txtTongChan = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTongLe = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -118,6 +118,7 @@ namespace BaiTap1winform
             this.btnTiepTuc.TabIndex = 5;
             this.btnTiepTuc.Text = "Tiếp tục";
             this.btnTiepTuc.UseVisualStyleBackColor = true;
+            this.btnTiepTuc.Click += new System.EventHandler(this.btnTiepTuc_Click);
             // 
             // btnThoat
             // 
@@ -128,6 +129,7 @@ namespace BaiTap1winform
             this.btnThoat.TabIndex = 5;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnNhap
             // 
@@ -138,6 +140,7 @@ namespace BaiTap1winform
             this.btnNhap.TabIndex = 5;
             this.btnNhap.Text = "Nhập";
             this.btnNhap.UseVisualStyleBackColor = true;
+            this.btnNhap.Click += new System.EventHandler(this.btnNhap_Click);
             // 
             // txtNhap
             // 
@@ -167,12 +170,12 @@ namespace BaiTap1winform
             this.txtTongChan.Size = new System.Drawing.Size(73, 27);
             this.txtTongChan.TabIndex = 6;
             // 
-            // textBox1
+            // txtTongLe
             // 
-            this.textBox1.Location = new System.Drawing.Point(356, 261);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(76, 27);
-            this.textBox1.TabIndex = 6;
+            this.txtTongLe.Location = new System.Drawing.Point(356, 261);
+            this.txtTongLe.Name = "txtTongLe";
+            this.txtTongLe.Size = new System.Drawing.Size(76, 27);
+            this.txtTongLe.TabIndex = 6;
             // 
             // Form1
             // 
@@ -180,7 +183,7 @@ namespace BaiTap1winform
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(512, 419);
             this.Controls.Add(this.txtDayNhap);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTongLe);
             this.Controls.Add(this.txtTongChan);
             this.Controls.Add(this.txtTongPhanTu);
             this.Controls.Add(this.txtNhap);
@@ -194,7 +197,11 @@ namespace BaiTap1winform
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Tính Tổng Dãy Số";
+            this.Activated += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Click += new System.EventHandler(this.Form1_Click);
+            this.Enter += new System.EventHandler(this.btnNhap_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,7 +222,7 @@ namespace BaiTap1winform
         private System.Windows.Forms.TextBox txtDayNhap;
         private System.Windows.Forms.TextBox txtTongPhanTu;
         private System.Windows.Forms.TextBox txtTongChan;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTongLe;
     }
 }
 
