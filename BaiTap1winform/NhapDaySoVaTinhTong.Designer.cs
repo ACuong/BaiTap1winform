@@ -1,7 +1,7 @@
 ﻿
 namespace BaiTap1winform
 {
-    partial class Form1
+    partial class FormTinhTongDaySo
     {
         /// <summary>
         ///  Required designer variable.
@@ -177,7 +177,7 @@ namespace BaiTap1winform
             this.txtTongLe.Size = new System.Drawing.Size(76, 27);
             this.txtTongLe.TabIndex = 6;
             // 
-            // Form1
+            // FormTinhTongDaySo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -196,7 +196,7 @@ namespace BaiTap1winform
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "FormTinhTongDaySo";
             this.Text = "Tính Tổng Dãy Số";
             this.Activated += new System.EventHandler(this.Form1_Load);
             this.Load += new System.EventHandler(this.Form1_Load);

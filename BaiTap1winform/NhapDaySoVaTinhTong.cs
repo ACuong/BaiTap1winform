@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace BaiTap1winform
 {
-    public partial class Form1 : Form
+    public partial class FormTinhTongDaySo : Form
     {
         
         public object Dayso { get; private set; }
 
-        public Form1()
+        public FormTinhTongDaySo()
         {
             InitializeComponent();
             
@@ -71,7 +71,12 @@ namespace BaiTap1winform
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+
+            if (MessageBox.Show("Bạn có muốn thoát không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+
         }
 
         private void btnTiepTuc_Click(object sender, EventArgs e)
