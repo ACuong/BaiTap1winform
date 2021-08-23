@@ -167,7 +167,6 @@ namespace ViDuMangArrayList
                 Console.WriteLine("{0}/{1}", ps.LayTS(), ps.LayMS());
             }
 
-
             Console.WriteLine("\nMang Diem:\n");
             ArrayList dsDiem = new ArrayList();
             dsDiem.Add(1);
