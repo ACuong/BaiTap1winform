@@ -7,9 +7,9 @@ namespace BTViDuMVCGiaiPTBac1.Models
 {
     public class GiaiPTBac1
     {
-        public Double GiaiPTBacMot(Double a, Double b)
+        public double GiaiPTBacMot(double a, double b)
         {
-            Double x;
+            double x;
             x = -b / a;
             return x;
         }
