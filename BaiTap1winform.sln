@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaiTap1winform", "BaiTap1winform\BaiTap1winform.csproj", "{4D0BDCFF-AE47-4219-A448-CFA2CC42607F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViDuMangArrayList", "ViDuMangArrayList\ViDuMangArrayList.csproj", "{69FBD079-5788-41B3-99D6-56BEC4C1DE74}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BaiTapViDuMVC", "BaiTapViDuMVC\BaiTapViDuMVC.vbproj", "{7442D152-9D01-4584-BE18-B5778C92E8E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BTViDuMVCGiaiPTBac1", "BTViDuMVCGiaiPTBac1\BTViDuMVCGiaiPTBac1.csproj", "{F05184B6-A529-4C9B-A47F-F7663CBC43C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaiTapMVC", "BTViDuMVCGiaiPTBac1\BaiTapMVC.csproj", "{F05184B6-A529-4C9B-A47F-F7663CBC43C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4D0BDCFF-AE47-4219-A448-CFA2CC42607F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D0BDCFF-AE47-4219-A448-CFA2CC42607F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4D0BDCFF-AE47-4219-A448-CFA2CC42607F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4D0BDCFF-AE47-4219-A448-CFA2CC42607F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{69FBD079-5788-41B3-99D6-56BEC4C1DE74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{69FBD079-5788-41B3-99D6-56BEC4C1DE74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69FBD079-5788-41B3-99D6-56BEC4C1DE74}.Release|Any CPU.ActiveCfg = Release|Any CPU
