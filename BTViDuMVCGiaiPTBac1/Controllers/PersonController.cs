@@ -60,34 +60,6 @@ namespace BTViDuMVCGiaiPTBac1.Controllers
             }
         }
 
-        //public ActionResult Delete(string id)
-        //{
-
-        //    var ps = db.Persons.Select(p => p).Where(p => p.PersonID == id).FirstOrDefault();
-        //    return View(ps);
-
-        //}
-        //[HttpPost]
-        //public ActionResult Delete(Person ps)
-        //{
-        //    try
-        //    {
-        //        var pse = db.Persons.Select(p => p).Where(p => p.PersonID == ps.PersonID).FirstOrDefault();
-        //        db.Persons.Remove(pse);
-
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-        //public ActionResult Delete(string id)
-        //{
-        //    var ps = db.Persons.Select(p => p).Where(p => p.PersonID == id).FirstOrDefault();
-        //    return View(ps);
-        //}
         public ActionResult Delete(string id)
         {
             var ps = db.Persons.Where(p => p.PersonID == id).FirstOrDefault();
@@ -106,9 +78,6 @@ namespace BTViDuMVCGiaiPTBac1.Controllers
                  }
                  return RedirectToAction("Index");
         }
-
-
-
 
     }
 

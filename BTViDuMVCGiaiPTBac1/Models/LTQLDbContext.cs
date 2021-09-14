@@ -13,23 +13,13 @@ namespace BTViDuMVCGiaiPTBac1.Models
         {
         }
 
-    
         public virtual DbSet<Person> Persons { get;set; }
+        public virtual DbSet<Employee> Employees { get;set; }
 
         internal void DeleteObject(Func<string, ActionResult> delete)
         {
             throw new NotImplementedException();
         }
-        //    protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //    {
 
-        //        modelBuilder.Entity<>()
-        //          .Property(e => e.StudentID)
-        //          .IsUnicode(false);
-        //        modelBuilder.Entity<Student>()
-        //         .Property(e => e.StudentName)
-        //         .IsUnicode(false);
-
-        //    }
     }
 }

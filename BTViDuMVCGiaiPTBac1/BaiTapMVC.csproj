@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Global.asax.cs">
@@ -153,7 +154,12 @@
     <Compile Include="Migrations\202109100722464_Altr_Column_Person.Designer.cs">
       <DependentUpon>202109100722464_Altr_Column_Person.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109140631558_Add-tabe-employee.cs" />
+    <Compile Include="Migrations\202109140631558_Add-tabe-employee.Designer.cs">
+      <DependentUpon>202109140631558_Add-tabe-employee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\KhachHang.cs" />
     <Compile Include="Models\LTQLDbContext.cs" />
     <Compile Include="Models\Person.cs" />
@@ -201,6 +207,11 @@
     <Content Include="Views\Person\Create.cshtml" />
     <Content Include="Views\Person\Edit.cshtml" />
     <Content Include="Views\Person\Delete.cshtml" />
+    <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\Employees\Delete.cshtml" />
+    <Content Include="Views\Employees\Details.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -233,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109100722464_Altr_Column_Person.resx">
       <DependentUpon>202109100722464_Altr_Column_Person.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109140631558_Add-tabe-employee.resx">
+      <DependentUpon>202109140631558_Add-tabe-employee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
