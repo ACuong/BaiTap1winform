@@ -10,7 +10,7 @@ namespace BTViDuMVCGiaiPTBac1.Controllers
     public class PersonController : Controller
     {
         LTQLDbContext db = new LTQLDbContext();
-
+        AutoGenerateKey auKey = new AutoGenerateKey();
         // GET: Person
         public ActionResult Index()
         {
@@ -19,18 +19,32 @@ namespace BTViDuMVCGiaiPTBac1.Controllers
 
         public ActionResult Create()
         {
+            string NewID = "";
+            var ps = db.Persons.ToList().OrderByDescending(c => c.PersonID);
+            var countPS = db.Persons.Count();
+
+            if (countPS == 0)
+            {
+                NewID = "PS001";
+            }
+            else
+            {
+                NewID = auKey.GenerateKey(ps.FirstOrDefault().PersonID);
+            } 
+            ViewBag.newPerID = NewID;
+            
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Person ps)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 db.Persons.Add(ps);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }    
+            }
             return View();
         }
 

@@ -13,14 +13,16 @@ namespace BTViDuMVCGiaiPTBac1.Controllers
     public class EmployeesController : Controller
     {
         private LTQLDbContext db = new LTQLDbContext();
-
+        AutoGenerateKey auKey = new AutoGenerateKey();
+    
+        
         // GET: Employees
         public ActionResult Index()
-        {
+        {     
             return View(db.Employees.ToList());
         }
 
-        // GET: Employees/Details/5
+        
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -38,15 +40,25 @@ namespace BTViDuMVCGiaiPTBac1.Controllers
         // GET: Employees/Create
         public ActionResult Create()
         {
+            string NewID = "";
+            var emp = db.Persons.ToList().OrderByDescending(c => c.PersonID);
+            var countEmployee = db.Persons.Count();
+
+            if (countEmployee == 0)
+            {
+                NewID = "PS001";
+            }
+            else
+            {
+                NewID = auKey.GenerateKey(emp.FirstOrDefault().PersonID);
+            }
+            ViewBag.newPerID = NewID;
             return View();
         }
 
-        // POST: Employees/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PersonID,PersonName,Adress,Company,Address")] Employee employee)
+        public ActionResult Create(Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -54,11 +66,9 @@ namespace BTViDuMVCGiaiPTBac1.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(employee);
         }
 
-        // GET: Employees/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -73,9 +83,6 @@ namespace BTViDuMVCGiaiPTBac1.Controllers
             return View(employee);
         }
 
-        // POST: Employees/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "PersonID,PersonName,Adress,Company,Address")] Employee employee)
@@ -86,6 +93,7 @@ namespace BTViDuMVCGiaiPTBac1.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            
             return View(employee);
         }
 

@@ -11,4 +11,4 @@ namespace BTViDuMVCGiaiPTBac1.Models
         public string Address { get; set; }
 
     }
-}
+} 
