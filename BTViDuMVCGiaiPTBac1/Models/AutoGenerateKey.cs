@@ -29,7 +29,6 @@ namespace BTViDuMVCGiaiPTBac1.Models
 
             return strkey;
 
-
             // tach rieng phan so va phan chu cua tham so id                  
             // giu nguyen phan chu
             // phan so chuyen di sang kieu so nguyen va tang them 1 don vi

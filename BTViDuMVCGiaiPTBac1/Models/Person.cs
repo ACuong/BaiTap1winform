@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace BTViDuMVCGiaiPTBac1.Models
 {
@@ -17,8 +18,8 @@ namespace BTViDuMVCGiaiPTBac1.Models
         [MinLength(3)]
         public string PersonName { get; set; }
         [Required(ErrorMessage = "Dia chi Adress khong duoc de trong")]
+        [AllowHtml]
         public string Adress { get; set; }
-
 
     }
 }
