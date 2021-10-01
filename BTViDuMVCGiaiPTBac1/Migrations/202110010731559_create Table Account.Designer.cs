@@ -7,13 +7,13 @@ namespace BTViDuMVCGiaiPTBac1.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class alte_People : IMigrationMetadata
+    public sealed partial class createTableAccount : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(alte_People));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(createTableAccount));
         
         string IMigrationMetadata.Id
         {
-            get { return "202109280649084_alte_People"; }
+            get { return "202110010731559_create Table Account"; }
         }
         
         string IMigrationMetadata.Source

@@ -15,11 +15,21 @@ namespace BTViDuMVCGiaiPTBac1.Models
 
         public virtual DbSet<Person> Persons { get;set; }
         public virtual DbSet<Employee> Employees { get;set; }
+        public virtual DbSet<Account> Accounts { get;set; }
 
-        internal void DeleteObject(Func<string, ActionResult> delete)
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new NotImplementedException();
+            modelBuilder.Entity<Account>()
+                .Property(e => e.Username)
+                .IsUnicode(false);
+            modelBuilder.Entity<Account>()
+                .Property(e => e.Password)
+                .IsUnicode(false);
         }
+        //internal void DeleteObject(Func<string, ActionResult> delete)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
     }
 }

@@ -7,6 +7,7 @@ using BTViDuMVCGiaiPTBac1.Models;
 
 namespace BTViDuMVCGiaiPTBac1.Controllers
 {
+    [Authorize]
     public class PersonController : Controller
     {
         LTQLDbContext db = new LTQLDbContext();

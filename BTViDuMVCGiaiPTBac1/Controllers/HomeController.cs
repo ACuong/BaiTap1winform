@@ -6,13 +6,14 @@ using System.Web.Mvc;
 
 namespace BTViDuMVCGiaiPTBac1.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
             return View();
         }
-
+        [Authorize]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
