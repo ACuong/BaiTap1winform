@@ -21,8 +21,13 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Trang Chủ", "Index", "Home")</li>
-                    <li>@Html.ActionLink("login", "Login", "Account")</li>
+                    <li>@Html.ActionLink("Admin", "Index", "Home_Ad", new { area = "Admins" }, new { @class = "navbar-brand" })</li>     
+                    <li>@Html.ActionLink("Person", "Index", "person")</li>
+                    <li>@Html.ActionLink("Employee", "Index", "Employees", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Register", "Register", "Account", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Account", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Role", "index", "Roles", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("Nhan Vien", "Index", "HomeNV", new { area = "NhanVien" }, new { @class = "navbar-brand" })</li>
 
                 </ul>
             </div>

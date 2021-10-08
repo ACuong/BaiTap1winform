@@ -37,5 +37,10 @@ namespace BTViDuMVCGiaiPTBac1.Models
 
         }
 
+        //public  string  GetMD5(string strInput)
+        //{
+        //    string str MD5 = "";
+        //}
+
     }
 }

@@ -16,5 +16,7 @@ namespace BTViDuMVCGiaiPTBac1.Models
         [Required(ErrorMessage = "Password is Required.")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+        [StringLength(10)]
+        public string RoleID { get; set; }
     }
 }

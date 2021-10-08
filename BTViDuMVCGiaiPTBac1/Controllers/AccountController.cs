@@ -12,6 +12,7 @@ namespace BTViDuMVCGiaiPTBac1.Controllers
     {
         Encryption Encry = new Encryption();
         LTQLDbContext db = new LTQLDbContext();
+
         // GET: Account
         [HttpGet]
         public ActionResult Register()
@@ -33,29 +34,44 @@ namespace BTViDuMVCGiaiPTBac1.Controllers
             }
             return View(acc);
         }
-        public ActionResult Login()
+        public ActionResult Login(string returnUrl)
         {
+            if (CheckSession() != 0)
+            { 
+                return RedirectToLocal(returnUrl); 
+            }
+
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]
-        public ActionResult Login(Account acc)
+        public ActionResult Login(Account acc, string returnUrl)
         {
-            if (ModelState.IsValid)
+            try
             {
-                string encyptionpass = Encry.PasswordEncryption(acc.Password);
-                var model = db.Accounts.Where(m => m.Username == acc.Username && m.Password == encyptionpass).ToList().Count();
-                // Thông tin đăng nhập chính xác
-                if (model == 1)
+                if (!string.IsNullOrEmpty(acc.Username) && !string.IsNullOrEmpty(acc.Password))
                 {
-                    FormsAuthentication.SetAuthCookie(acc.Username, true);
-                    return RedirectToAction("Index", "Home");
+                    using (var db = new LTQLDbContext())
+                    {
+                        var passToMD5 = Encry.PasswordEncryption(acc.Password);
+                        var account = db.Accounts.Where(m => m.Username.Equals(acc.Username) && m.Password.Equals(passToMD5)).Count();
+                        if (account == 1)
+                        {
+                            FormsAuthentication.SetAuthCookie(acc.Username, false);
+                            Session["idUser"] = acc.Username;
+                            Session["roleUser"] = acc.RoleID;
+                            return RedirectToLocal(returnUrl);
+                        }
+                        ModelState.AddModelError("", "Thông tin đăng nhập chưa chính xác");
+                    }
                 }
-                else
-                {
-                    ModelState.AddModelError("", "Thông tin đăng nhập không chính xác");
-                }
+                ModelState.AddModelError("", "username and password is required.");
+            }
+            catch
+            {
+                ModelState.AddModelError("", "Hệ thống đang được bảo trì, vui lòng liên hệ với quản trị viên");
             }
             return View(acc);
         }
@@ -64,7 +80,53 @@ namespace BTViDuMVCGiaiPTBac1.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
+        //kiểm tra người dùng đăng nhập quyền gì
+        private int CheckSession()
+        {
+            using (var db = new LTQLDbContext())
+            {
+                var user = HttpContext.Session["idUser"];
+                if (user != null)
+                {
+                    var role = db.Accounts.Find(user.ToString()).RoleID;
+                    if (role.ToString() == "Admin")
+                    {
+                        return 1;
+                    }
 
+                    else if (role.ToString() == "NV")
+                    {
+                        return 2;
+                    }
+                }
+            }
+            return 0;
+        }
+
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (string.IsNullOrEmpty(returnUrl) || returnUrl == "/")
+            {
+
+                if (CheckSession() == 1)
+                {
+                    return RedirectToAction("Index", "Home_Ad", new { Area = "Admins" });
+                }
+                else if (CheckSession() == 2)
+                {
+                    return RedirectToAction("Index", "HomeNV", new { Area = "NhanVien" });
+                }
+                if (Url.IsLocalUrl(returnUrl))
+                {
+                    return Redirect(returnUrl);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            return RedirectToAction("Index", "Home");
+        }
     }
 
 

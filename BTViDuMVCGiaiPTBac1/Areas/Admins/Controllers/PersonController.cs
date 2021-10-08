@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using BTViDuMVCGiaiPTBac1.Models;
 
-namespace BTViDuMVCGiaiPTBac1.Controllers
+namespace BTViDuMVCGiaiPTBac1.Areas.Admins.Controllers
 {
     [Authorize]
     public class PersonController : Controller
@@ -48,7 +48,6 @@ namespace BTViDuMVCGiaiPTBac1.Controllers
             }
             return View();
         }
-
 
         public ActionResult Edit(string id)
         {
