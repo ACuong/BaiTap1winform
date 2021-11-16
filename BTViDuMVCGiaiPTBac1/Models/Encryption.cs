@@ -10,7 +10,7 @@ namespace BTViDuMVCGiaiPTBac1.Models
     {
         public string  PasswordEncryption(String pass)
         {
-            return FormsAuthentication.HashPasswordForStoringInConfigFile(pass.Trim(), "MD5");
+            return FormsAuthentication.HashPasswordForStoringInConfigFile(pass.Trim(), "MD5"); //ma hoa chuoi truyen vao
         }
     }
 }

@@ -135,9 +135,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Areas\Admins\Controllers\PersonController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\UploadExcelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -177,6 +179,10 @@
     <Compile Include="Migrations\202110050606328_update-tabe-account-roleID.Designer.cs">
       <DependentUpon>202110050606328_update-tabe-account-roleID.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111160634301_Table_Khachhag.cs" />
+    <Compile Include="Migrations\202111160634301_Table_Khachhag.Designer.cs">
+      <DependentUpon>202111160634301_Table_Khachhag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AutoGenerateKey.cs" />
@@ -185,6 +191,7 @@
     <Compile Include="Models\KhachHang.cs" />
     <Compile Include="Models\LTQLDbContext.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\ReadDataFromExcelFile.cs" />
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\UsersRoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -601,13 +608,21 @@
     <Content Include="Views\Roles\Details.cshtml" />
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\UploadExcel\Index.cshtml" />
+    <Content Include="Views\KhachHang\Create.cshtml" />
+    <Content Include="Views\KhachHang\Delete.cshtml" />
+    <Content Include="Views\KhachHang\Details.cshtml" />
+    <Content Include="Views\KhachHang\Edit.cshtml" />
+    <Content Include="Views\KhachHang\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admins\Data\" />
     <Folder Include="Areas\NhanVien\Data\" />
     <Folder Include="Areas\NhanVien\Views\Shared\" />
+    <Folder Include="Uploads\Excels\" />
     <Folder Include="Views\NhanVien\" />
+    <Folder Include="Views\ReadDataFromExcelFile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -649,6 +664,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110050606328_update-tabe-account-roleID.resx">
       <DependentUpon>202110050606328_update-tabe-account-roleID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111160634301_Table_Khachhag.resx">
+      <DependentUpon>202111160634301_Table_Khachhag.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
