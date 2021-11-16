@@ -24,16 +24,16 @@ namespace BTViDuMVCGiaiPTBac1.Controllers
         public ActionResult Index(HttpPostedFileBase file)
         {
             DataTable dt = CopyDataFromExcelFile(file);
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                var kh = new KhachHang();
-                kh.MaKhachHang = dt.Rows[i][0].ToString();
-                kh.TenKhachHang = dt.Rows[i][1].ToString();
-                kh.SoDienThoai = dt.Rows[i][2].ToString();
-                db.KhachHangs.Add(kh);
-            }
-            db.SaveChanges();
-            //OverwriteFastData(dt);
+            //for (int i = 0; i < dt.Rows.Count; i++)
+            //{
+            //    var kh = new KhachHang();
+            //    kh.MaKhachHang = dt.Rows[i][0].ToString();
+            //    kh.TenKhachHang = dt.Rows[i][1].ToString();
+            //    kh.SoDienThoai = dt.Rows[i][2].ToString();
+            //    db.KhachHangs.Add(kh);
+            //}
+            //db.SaveChanges();
+            OverwriteFastData(dt);
             return RedirectToAction("Index", "KhachHang");
         }
 
